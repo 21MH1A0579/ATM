@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class main_Class extends JFrame implements ActionListener {
-    JButton b1,b2,b3,b4,b5,b6,b7;
+    JButton b1,b2,b3,b4,b6,b7;
     String pin;
     String cardno;
     main_Class(String cardno,String pin ){
@@ -52,13 +52,6 @@ public class main_Class extends JFrame implements ActionListener {
         b4.addActionListener(this);
         l3.add(b4);
 
-//        b5 = new JButton("PIN CHANGE");
-//        b5.setForeground(Color.WHITE);
-//        b5.setBackground(new Color(65,125,128));
-//        b5.setBounds(410,362,150,35);
-//        b5.addActionListener(this);
-//        l3.add(b5);
-
         b6 = new JButton("BALANCE ENQUIRY");
         b6.setForeground(Color.WHITE);
         b6.setBackground(new Color(65,125,128));
@@ -96,10 +89,6 @@ public class main_Class extends JFrame implements ActionListener {
             new FastCash(cardno,pin);
             setVisible(false);
         }
-//        else if (e.getSource()==b5) {
-//            new Pin(pin);
-//            setVisible(false);
-//        }
         else if (e.getSource()==b4) {
             new mini(cardno,pin);
         }
