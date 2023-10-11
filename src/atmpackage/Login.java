@@ -12,7 +12,7 @@ public class Login extends JFrame implements ActionListener {
 
     JButton button1,button2,button3;
     Login(){
-        //super("Bank Management System");
+
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icon/bank.png"));
         Image i2 = i1.getImage().getScaledInstance(100,100,Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
@@ -105,7 +105,7 @@ public class Login extends JFrame implements ActionListener {
                 ResultSet resultSet = c.statement.executeQuery(q);
                 if (resultSet.next()){
                     setVisible(false);
-                    new main_Class(pin);
+                    new main_Class(cardno,pin);
                 }else {
                     JOptionPane.showMessageDialog(null,"Incorrect Card Number or PIN");
                 }

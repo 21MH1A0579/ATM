@@ -7,9 +7,11 @@ import java.sql.ResultSet;
 
 public class mini extends JFrame implements ActionListener {
     String pin;
+    String cardno;
     JButton button;
-    mini(String pin){
+    mini(String cardno ,String pin){
         this.pin = pin;
+        this.cardno=cardno;
         getContentPane().setBackground(new Color(255,204,204));
         setSize(400,600);
         setLocation(20,20);
@@ -34,7 +36,7 @@ public class mini extends JFrame implements ActionListener {
 
         try{
             Connn c = new Connn();
-            ResultSet resultSet = c.statement.executeQuery("select * from login where pin = '"+pin+"'");
+            ResultSet resultSet = c.statement.executeQuery("select * from login where card_number = '"+cardno+"'");
             while (resultSet.next()){
                 label3.setText("Card Number:  "+ resultSet.getString("card_number").substring(0,4) + "XXXXXXXX"+ resultSet.getString("card_number").substring(12));
             }
@@ -45,7 +47,7 @@ public class mini extends JFrame implements ActionListener {
         try{
             int balance =0;
             Connn c = new Connn();
-            ResultSet resultSet = c.statement.executeQuery("select * from bank where pin = '"+pin+"'");
+            ResultSet resultSet = c.statement.executeQuery("select * from bank where cardno = '"+cardno+"' and  pin = '"+pin+"'");
             while (resultSet.next()){
 
                 label1.setText(label1.getText() + "<html>"+resultSet.getString("date")+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+resultSet.getString("type")+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+resultSet.getString("amount")+ "<br><br><html>");
@@ -77,6 +79,6 @@ public class mini extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new mini("");
+        new mini("","");
     }
 }

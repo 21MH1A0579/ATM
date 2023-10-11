@@ -10,11 +10,13 @@ import java.util.Date;
 public class Withdrawl extends JFrame implements ActionListener {
 
     String pin;
+    String cardno;
     TextField textField;
 
     JButton b1, b2;
-    Withdrawl(String pin){
+    Withdrawl(String cardno,String pin){
         this.pin=pin;
+        this.cardno=cardno;
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icon/atm2.png"));
         Image i2 = i1.getImage().getScaledInstance(1550,830,Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
@@ -72,7 +74,7 @@ public class Withdrawl extends JFrame implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Please enter the Amount you want to withdraw");
                 } else {
                     Connn c = new Connn();
-                    ResultSet resultSet = c.statement.executeQuery("select * from bank where pin = '" + pin + "'");
+                    ResultSet resultSet = c.statement.executeQuery("select * from bank where cardno = '" + cardno + "'");
                     int balance = 0;
                     while (resultSet.next()) {
                         if (resultSet.getString("type").equals("Deposit")) {
@@ -86,10 +88,10 @@ public class Withdrawl extends JFrame implements ActionListener {
                         return;
                     }
 
-                    c.statement.executeUpdate("insert into bank values('" + pin + "', '" + date + "', 'Withdrawl', '" + amount + "' )");
+                    c.statement.executeUpdate("insert into bank values('"+cardno+"','" + pin + "', '" + date + "', 'Withdrawl', '" + amount + "' )");
                     JOptionPane.showMessageDialog(null, "Rs. " + amount + " Debited Successfully");
                     setVisible(false);
-                    new main_Class(pin);
+                    new main_Class(cardno,pin);
 
                 }
             } catch (Exception E) {
@@ -97,11 +99,11 @@ public class Withdrawl extends JFrame implements ActionListener {
             }
         } else if (e.getSource()==b2) {
             setVisible(false);
-            new main_Class(pin);
+            new main_Class(cardno,pin);
         }
     }
 
     public static void main(String[] args) {
-        new Withdrawl("");
+        new Withdrawl("","");
     }
 }
