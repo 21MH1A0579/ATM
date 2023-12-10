@@ -91,27 +91,47 @@ public class FastCash extends JFrame implements ActionListener {
         if (e.getSource()==b7) {
             setVisible(false);
             new main_Class(cardno,pin);
-        }else {
+        } else {
             String amount = ((JButton)e.getSource()).getText().substring(4);
             Connn c = new Connn();
             Date date = new Date();
             try{
                 ResultSet resultSet = c.statement.executeQuery("select * from bank where cardno = '"+cardno+"' and  pin = '"+pin+"'");
-                int balance =0;
-                while (resultSet.next()){
+
+                int bal=0;
+                int balance=0;
+                String dt=date.toString().substring(0,10);
+                while(resultSet.next()) {
+                    if (resultSet.getString("date").substring(0, 10).equals(dt))
+                    {
+                        if (resultSet.getString("type").equals("withdrawl") || resultSet.getString("type").equals("Withdrawl")) {
+                            bal += Integer.parseInt(resultSet.getString("amount"));
+                        }
+                    }
                     if (resultSet.getString("type").equals("Deposit")){
                         balance += Integer.parseInt(resultSet.getString("amount"));
                     }
                     else {
                         balance -= Integer.parseInt(resultSet.getString("amount"));
                     }
+                };
+//                while (resultSet.next()){
+//                    if (resultSet.getString("type").equals("Deposit")){
+//                        balance += Integer.parseInt(resultSet.getString("amount"));
+//                    }
+//                    else {
+//                        balance -= Integer.parseInt(resultSet.getString("amount"));
+//                    }
+//                }
+                if(bal+Integer.parseInt(amount)>10000)
+                {
+                    JOptionPane.showMessageDialog(null, "Daily WithDrawl Limit Exceeded!!!");
+                    return;
                 }
-
-                if (e.getSource() != b7 && balance < Integer.parseInt(amount)){
+                else if (e.getSource() != b7 && balance < Integer.parseInt(amount)){
                     JOptionPane.showMessageDialog(null, "Insuffient Balance");
                     return;
                 }
-
                 c.statement.executeUpdate("insert into bank values('"+cardno+"','"+pin+"','"+date+"', 'withdrawl', '"+amount+"')");
                 JOptionPane.showMessageDialog(null, "Rs. "+amount+" Debited Successfully");
             }catch (Exception E){
