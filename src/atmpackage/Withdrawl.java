@@ -70,11 +70,35 @@ public class Withdrawl extends JFrame implements ActionListener {
             try {
                 String amount = textField.getText();
                 Date date = new Date();
+
+                String dt=date.toString().substring(0,10);
+                Connn c = new Connn();
+                ResultSet r1 = c.statement.executeQuery("select * from bank where cardno = '" + cardno + "' ");
+                int bal=0;
+                while(r1.next()) {
+                    if (r1.getString("date").substring(0, 10).equals(dt))
+                    {
+                        if (r1.getString("type").equals("withdrawl") || r1.getString("type").equals("Withdrawl")) {
+                            bal += Integer.parseInt(r1.getString("amount"));
+
+                        }
+                    }
+                };
                 if (textField.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Please enter the Amount you want to withdraw");
-                } else {
-                    Connn c = new Connn();
-                    ResultSet resultSet = c.statement.executeQuery("select * from bank where cardno = '" + cardno + "'");
+                }
+                else if(textField.getText().length()>4)
+                {
+                    JOptionPane.showMessageDialog(null, "Please enter the Amount less Than 10000");
+                }
+                else if(bal+Integer.parseInt(textField.getText().toString())>10000)
+                {
+                    JOptionPane.showMessageDialog(null, "Limit Exceeded!!!!");
+                }
+
+                else {
+                    Connn con = new Connn();
+                    ResultSet resultSet = con.statement.executeQuery("select * from bank where cardno = '" + cardno + "'");
                     int balance = 0;
                     while (resultSet.next()) {
                         if (resultSet.getString("type").equals("Deposit")) {
@@ -88,7 +112,7 @@ public class Withdrawl extends JFrame implements ActionListener {
                         return;
                     }
 
-                    c.statement.executeUpdate("insert into bank values('"+cardno+"','" + pin + "', '" + date + "', 'Withdrawl', '" + amount + "' )");
+                    con.statement.executeUpdate("insert into bank values('"+cardno+"','" + pin + "', '" + date + "', 'withdrawl', '" + amount + "' )");
                     JOptionPane.showMessageDialog(null, "Rs. " + amount + " Debited Successfully");
                     setVisible(false);
                     new main_Class(cardno,pin);

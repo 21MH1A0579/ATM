@@ -47,15 +47,24 @@ public class mini extends JFrame implements ActionListener {
         try{
             int balance =0;
             Connn c = new Connn();
-            ResultSet resultSet = c.statement.executeQuery("select * from bank where cardno = '"+cardno+"' and  pin = '"+pin+"'");
+            ResultSet resultSet = c.statement.executeQuery("select * from bank where cardno = '"+cardno+"' and  pin = '"+pin+"' order by date desc limit 6");
             while (resultSet.next()){
 
                 label1.setText(label1.getText() + "<html>"+resultSet.getString("date")+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+resultSet.getString("type")+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+resultSet.getString("amount")+ "<br><br><html>");
 
-                if (resultSet.getString("type").equals("Deposit")){
-                    balance += Integer.parseInt(resultSet.getString("amount"));
+//                if (resultSet.getString("type").equals("Deposit")){
+//                    balance += Integer.parseInt(resultSet.getString("amount"));
+//                }else {
+//                    balance -= Integer.parseInt(resultSet.getString("amount"));
+//                }
+            }
+            ResultSet r1 = c.statement.executeQuery("select * from bank where cardno = '"+cardno+"' and  pin = '"+pin+"'");
+            while(r1.next())
+            {
+                if (r1.getString("type").equals("Deposit")){
+                    balance += Integer.parseInt(r1.getString("amount"));
                 }else {
-                    balance -= Integer.parseInt(resultSet.getString("amount"));
+                    balance -= Integer.parseInt(r1.getString("amount"));
                 }
             }
             label4.setText("Your Total Balance is Rs "+balance);

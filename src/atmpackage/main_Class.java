@@ -7,7 +7,8 @@ public class main_Class extends JFrame implements ActionListener {
     JButton b1,b2,b3,b4,b6,b7;
     String pin;
     String cardno;
-    main_Class(String cardno,String pin ){
+    main_Class(String cardno,String pin )
+    {
         this.pin = pin;
         this.cardno=cardno;
 
@@ -78,7 +79,9 @@ public class main_Class extends JFrame implements ActionListener {
             new Deposit(cardno,pin);
             setVisible(false);
         }else if (e.getSource()==b7){
-            System.exit(0);
+           // System.exit(0);
+            new Login();
+            setVisible(false);
         } else if (e.getSource()==b2) {
             new Withdrawl(cardno,pin);
             setVisible(false);
