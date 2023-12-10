@@ -91,9 +91,9 @@ public class Withdrawl extends JFrame implements ActionListener {
                 {
                     JOptionPane.showMessageDialog(null, "Please enter the Amount less Than 10000");
                 }
-                else if(bal+Integer.parseInt(textField.getText().toString())>10000)
+                else if(bal+Integer.parseInt(textField.getText().toString())>20000)
                 {
-                    JOptionPane.showMessageDialog(null, "Daily WithDrawl Limit Exceeded!!!!");
+                    JOptionPane.showMessageDialog(this, "Limit Exceeded!!!","Daily WithDrawl Limit is Rs 20,000",JOptionPane.ERROR_MESSAGE);
                 }
 
                 else {
@@ -119,7 +119,7 @@ public class Withdrawl extends JFrame implements ActionListener {
 
                 }
             } catch (Exception E) {
-                JOptionPane.showMessageDialog(null, E.getMessage());
+                JOptionPane.showMessageDialog(null, "Invalid Amount:"+E.getMessage());
             }
         } else if (e.getSource()==b2) {
             setVisible(false);

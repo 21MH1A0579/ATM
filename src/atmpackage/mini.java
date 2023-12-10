@@ -25,6 +25,10 @@ public class mini extends JFrame implements ActionListener {
         label2.setFont(new Font("System", Font.BOLD,15));
         label2.setBounds(150,20,200,20);
         add(label2);
+        JLabel label5 = new JLabel("==========Last Six Transaction Details============");
+        label5.setFont(new Font("System", Font.BOLD,13));
+        label5.setBounds(20,110,350,20);
+        add(label5);
 
         JLabel label3 = new JLabel();
         label3.setBounds(20,80,300,20);
