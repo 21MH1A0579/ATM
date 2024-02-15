@@ -1,0 +1,32 @@
+use atmbank;
+select * from login;
+insert into login values("","");
+select *from bank where cardno="1234567887654321" ;
+delete from bank;
+select   * from bank where cardno="1111111111111111" order by date desc limit 6;
+select count(*) from bank;
+select *from login;
+Select top 3 * from bank Order by date;
+delete from bank where amount="";
+
+select * from bank where cardno = "1122334455667788" and  pin ="1234" order by month(date) desc;
+use atmsystem;
+ALTER TABLE bank
+MODIFY COLUMN date datetime;
+show columns from bank;
+create database bankSystem;
+use bankSystem;
+select *from bankSystem;
+create table login(card_number varchar(50),pin varchar(30));
+create table bank(cardno varchar(30),pin varchar(10),date varchar(50),type varchar(20),amount varchar(20));
+select * from login;
+insert into login values(null,1111111111111111,1111);
+select * from bank;
+delete from bank;
+delete from login;
+SET SQL_SAFE_UPDATES = 0;
+create database Bill_system;
+use Bill_system;
+use bankSystem;
+select *from Signup;
+create table Signup(meter_no varchar(20), username varchar(20), name varchar(30), password varchar(30),
