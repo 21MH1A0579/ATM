@@ -93,7 +93,7 @@ public class Withdrawl extends JFrame implements ActionListener {
                 }
                 else if(bal+Integer.parseInt(textField.getText().toString())>20000)
                 {
-                    JOptionPane.showMessageDialog(this, "Limit Exceeded!!!","Daily WithDrawl Limit is Rs 20,000",JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Daily WithDrawl Limit is Rs 20,000","Limit Exceeded!!!",JOptionPane.ERROR_MESSAGE);
                 }
 
                 else {

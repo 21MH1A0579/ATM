@@ -125,7 +125,7 @@ public class FastCash extends JFrame implements ActionListener {
 //                }
                 if(bal+Integer.parseInt(amount)>20000)
                 {
-                    JOptionPane.showMessageDialog(this, "Limit Exceeded!!!","Daily WithDrawl Limit is Rs 20,000",JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Daily WithDrawl Limit is Rs 20,000","Limit Exceeded!!!",JOptionPane.ERROR_MESSAGE);
                     return;
                 }
                 else if (e.getSource() != b7 && balance < Integer.parseInt(amount)){
