@@ -19,40 +19,40 @@ This Java-based ATM (Automated Teller Machine) application simulates the functio
    - Users enter their card number and PIN to access their accounts.
    - Successful login redirects users to the main menu.
 
-   ![Login Screen](icon/APP_IMAGES/LoginScreen.png)
+   <img src="icon/APP_IMAGES/LoginScreen.png" alt="Login Screen" width="200" height="400"/>
 
 2. **Main Screen**: 
    - Presents users with a menu to select different banking transactions.
    - Options include deposit, withdrawal, balance inquiry, mini statement, and exit.
 
-   ![Main Screen](icon/APP_IMAGES/MainScreen.png)
+   <img src="icon/APP_IMAGES/MainScreen.png" alt="Main Screen" width="200" height="400"/>
 
 3. **Deposit Screen**: 
    - Users can deposit funds into their accounts by specifying the amount.
    - The application records transaction details and updates the account balance.
 
-   ![Deposit Screen](icon/APP_IMAGES/DepositScreen.png)
+   <img src="icon/APP_IMAGES/DepositScreen.png" alt="Deposit Screen" width="200" height="400"/>
 
 4. **Withdraw Screen**: 
    - Allows users to withdraw cash from their accounts by specifying the amount.
    - Verifies account balance before processing withdrawals.
 
-   ![Withdraw Screen](icon/APP_IMAGES/WithdrawlScreen.png)
+   <img src="icon/APP_IMAGES/WithdrawlScreen.png" alt="Withdraw Screen" width="200" height="400"/>
 
 5. **Balance Enquiry Screen**: 
    - Displays the user's account balance retrieved from the database.
 
-   ![Balance Screen](icon/APP_IMAGES/BalanceScreen.png)
+   <img src="icon/APP_IMAGES/BalanceScreen.png" alt="Balance Screen" width="200" height="400"/>
 
 6. **Fast Cash Screen**: 
    - Provides predefined withdrawal options for quick transactions.
 
-   ![Fast Cash Screen](icon/APP_IMAGES/FastCashWithdrawl.png)
+   <img src="icon/APP_IMAGES/FastCashWithdrawl.png" alt="Fast Cash Screen" width="200" height="400"/>
 
 7. **Mini Statement Screen**: 
    - Displays a mini statement of recent transactions with details like date, type, and amount.
 
-   ![Mini Statement Screen](icon/APP_IMAGES/MiniStatementScreen.png)
+   <img src="icon/APP_IMAGES/MiniStatementScreen.png" alt="Mini Statement Screen" width="200" height="400"/>
 
 ## Technologies Used
 
