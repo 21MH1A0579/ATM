@@ -19,26 +19,40 @@ This Java-based ATM (Automated Teller Machine) application simulates the functio
    - Users enter their card number and PIN to access their accounts.
    - Successful login redirects users to the main menu.
 
+   ![Login Screen](icon/APP_IMAGES/LoginScreen.png)
+
 2. **Main Screen**: 
    - Presents users with a menu to select different banking transactions.
    - Options include deposit, withdrawal, balance inquiry, mini statement, and exit.
+
+   ![Main Screen](icon/APP_IMAGES/MainScreen.png)
 
 3. **Deposit Screen**: 
    - Users can deposit funds into their accounts by specifying the amount.
    - The application records transaction details and updates the account balance.
 
+   ![Deposit Screen](icon/APP_IMAGES/DepositScreen.png)
+
 4. **Withdraw Screen**: 
    - Allows users to withdraw cash from their accounts by specifying the amount.
    - Verifies account balance before processing withdrawals.
 
+   ![Withdraw Screen](icon/APP_IMAGES/WithdrawlScreen.png)
+
 5. **Balance Enquiry Screen**: 
    - Displays the user's account balance retrieved from the database.
+
+   ![Balance Screen](icon/APP_IMAGES/BalanceScreen.png)
 
 6. **Fast Cash Screen**: 
    - Provides predefined withdrawal options for quick transactions.
 
+   ![Fast Cash Screen](icon/APP_IMAGES/FastCashWithdrawl.png)
+
 7. **Mini Statement Screen**: 
    - Displays a mini statement of recent transactions with details like date, type, and amount.
+
+   ![Mini Statement Screen](icon/APP_IMAGES/MiniStatementScreen.png)
 
 ## Technologies Used
 
